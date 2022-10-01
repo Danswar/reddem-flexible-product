@@ -2,4 +2,4 @@ require("dotenv").config();
 
 const { handler } = require(".");
 
-handler();
+handler({ apiKey: process.env.APP_KEY });

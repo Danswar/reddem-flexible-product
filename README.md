@@ -1,4 +1,4 @@
-# dust-lambda
+# positions-lambda
 
 ## Available scripts
 
@@ -10,3 +10,15 @@ Run unit test suite.
 
 `npm run test:watch`
 Run unit test suite for development.
+
+## env
+```
+KEY_MANAGER_ARN
+```
+
+## Event shape
+```
+{
+    apiKey: string
+}
+```

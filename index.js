@@ -1,7 +1,10 @@
-const { Spot } = require("@danswar/binance-connector-node");
+const { Spot, LambdaSigner } = require("@danswar/binance-connector-node");
 
-exports.handler = async () => {
-  const client = new Spot(process.env.APP_KEY, process.env.APP_SECRET);
+exports.handler = async event => {
+  if (!event.apiKey) return console.log("no valid event");
+
+  const signer = new LambdaSigner(event.apiKey, process.env.KEY_MANAGER_ARN);
+  const client = new Spot(signer);
 
   const { data: spot } = await client.userAsset();
   const { data: funding } = await client.fundingWallet();
@@ -9,6 +12,6 @@ exports.handler = async () => {
     data: flexibleProducts
   } = await client.savingsFlexibleProductPosition();
   console.log({ spot, funding, flexibleProducts });
-  const response = "hello";
-  return response;
+
+  return "hello";
 };
