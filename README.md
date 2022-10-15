@@ -1,4 +1,4 @@
-# positions-lambda
+# redeem-flexible-product
 
 ## Available scripts
 
