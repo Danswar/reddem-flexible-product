@@ -19,6 +19,8 @@ KEY_MANAGER_ARN
 ## Event shape
 ```
 {
-    apiKey: string
+    apiKey: string,
+    asset: string,
+    amount: number like
 }
 ```
